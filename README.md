@@ -27,7 +27,7 @@ Conversão do modelo conceitual para o modelo relacional, com chaves primárias,
 ├── main.py             # Implementação em Python: CRUD, testes e consultas
 ├── requirements.txt    # Dependências Python
 ├── .env.example         # Modelo de variáveis de ambiente (copie para .env)
-└── visuals/
+└── modelos_visuals/
     ├── modelo_conceitual.png
     └── modelo_logico.png
 ```
@@ -59,22 +59,6 @@ Conversão do modelo conceitual para o modelo relacional, com chaves primárias,
 | 3 | Total de ingressos vendidos para eventos que receberam pelo menos uma avaliação |
 | Extra | Valor de patrocínio e vendas de ingresso para eventos com artistas específicos (Wizkid, Burna Boy, Asake) |
 
-Cada consulta usa `JOIN`/`GROUP BY`/funções de agregação sobre o modelo relacional completo. Os resultados foram visualizados em gráficos no Excel (ver relatório completo).
-
-## Nota sobre segurança — correções aplicadas
-
-Na primeira versão do projeto, duas funções do `main.py` (`show_table` e `update_value`) construíam queries SQL concatenando diretamente o input do usuário na string, o que é uma vulnerabilidade clássica de **SQL Injection**. Corrigi isso em duas frentes:
-
-- **Nomes de tabela**: validados contra a whitelist de tabelas conhecidas (`tables.keys()`) antes de entrar na query
-- **Nomes de coluna** (que, como identificadores, não podem ser parametrizados pelo driver): validados com uma regex restrita a `[A-Za-z0-9_]`
-- **Valores** (o dado em si, que pode e deve ser parametrizado): passados via placeholders (`%s`) do `mysql-connector-python`, não mais concatenados como string
-
-Também movi as credenciais do banco (antes hardcoded como `user='root', password='master'`) para variáveis de ambiente via `python-dotenv`, seguindo o arquivo `.env.example` incluído no repositório.
-
-## Correção de modelagem
-
-O diagrama do modelo lógico (brModelo) já definia `Cod_patrocina` como chave primária nas tabelas de especialização `Pessoa_Física` e `Pessoa_Jurídica` (padrão table-per-subclass para a generalização "Patrocinador"), mas essa PK não tinha sido replicada nos scripts SQL da primeira versão. Corrigido tanto no `Script.sql` quanto no `main.py`, junto com o tipo de `CPF`/`CNPJ` (de `integer` para `varchar`, evitando perda de zeros à esquerda).
-
 ## Ferramentas utilizadas
 
 - **MySQL** — banco de dados relacional
@@ -83,5 +67,3 @@ O diagrama do modelo lógico (brModelo) já definia `Cod_patrocina` como chave p
 - **Excel** — visualização dos resultados das consultas
 
 ---
-
-📎 Trabalho final da disciplina de Banco de Dados I — UFSC, Campus Araranguá (2024)
