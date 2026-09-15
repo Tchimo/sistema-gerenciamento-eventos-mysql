@@ -1,0 +1,55 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+#*
+#.env
+#__pycache__/
+#*.pyc
+#.venv/
+#venv/
+
+
+# Ambiente virtual
+venv/
+env/
+.venv/
+ENV/
+
+# Cache e bytecode do Python
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+*.so
+
+# Distribuição / empacotamento
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# Variáveis de ambiente / segredos
+.env
+.env.local
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker (se aplicável)
+*.env
+docker-compose.override.yml
