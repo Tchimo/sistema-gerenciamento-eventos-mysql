@@ -10,13 +10,13 @@ Organizações que promovem eventos com múltiplas sessões, patrocinadores, ing
 
 ## Modelo Conceitual
 
-![Modelo Conceitual](visuals/modelo_conceitual.png)
+![Modelo Conceitual](modelos_visuals/modelo_conceitual.png)
 
 Principais entidades: Evento, Organização, Local, Agenda/Sessão, Participante, Ingresso, Colaborador, Ator (palestrante/artista), Patrocinador (com especialização em Pessoa Física / Pessoa Jurídica) e Avaliação.
 
 ## Modelo Lógico
 
-![Modelo Lógico](visuals/modelo_logico.png)
+![Modelo Lógico](modelos_visuals/modelo_logico.png)
 
 Conversão do modelo conceitual para o modelo relacional, com chaves primárias, estrangeiras e cardinalidades definidas — desenvolvido com a ferramenta [brModelo](https://sourceforge.net/projects/brmodeloii/).
 
