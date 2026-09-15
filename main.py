@@ -526,7 +526,7 @@ path_env = '.env'
 load_dotenv(path_env)
 
 
-# Beginin of funtions
+# Beginin of funtions 
 def connect_resgatocao():
     cnx = mysql.connector.connect(
         host=os.getenv("DB_HOST", "localhost"),
@@ -564,7 +564,7 @@ def drop_all_tables(connect):
 
 def create_all_tables(connect):
     print("\n---CREATE ALL TABLES---")
-    # Criação das tabelas
+    # Criação das tabelas 
     cursor = connect.cursor()
     for table_name in tables:
         table_description = tables[table_name]
